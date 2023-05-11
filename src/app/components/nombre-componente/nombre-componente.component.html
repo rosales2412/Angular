@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Conversor de divisas</h1>
+      <p>Escoje la moneda y la cantidad para realizar conversion</p>
+      <div class="container2">
+        <div class="moneda">
+          <select
+            [disabled]="this.select === 1"
+            [(ngModel)]="coin1"
+            name="coin1"
+            id="coin1"
+          >
+            <option *ngFor="let divisa of this.divisas" [ngValue]="divisa">
+              {{ divisa.currency }}
+            </option>
+          </select>
+
+          <input
+            [(ngModel)]="quantity"
+            type="number"
+            name="quantity"
+            id="quantity"
+            type="number"
+            placeholder="0"
+          />
+        </div>
+
+        <div class="taza-cambio-container">
+          <button (click)="Change()" class="btn" id="taza">cambio</button>
+        </div>
+
+        <div class="moneda">
+          <select
+            [disabled]="this.select === 1"
+            [(ngModel)]="coin2"
+            name="coin2"
+            id="coin2"
+          >
+            <option *ngFor="let divisa of this.divisas" [ngValue]="divisa">
+              {{ divisa.currency }}
+            </option>
+          </select>
+
+          <div *ngIf="result" class="result">
+            <h4>
+              {{ quantity }} {{ coin1.currency }} equivale a
+              {{ result | number : "1.2-2" }} {{ coin2.currency }}
+            </h4>
+          </div>
+        </div>
+
+        <div class="resultado-container">
+          <button (click)="Convert()" class="btn" id="result">
+            <strong>Resultado</strong>
+          </button>
+
+          <div class="cambio" id="cambio"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
