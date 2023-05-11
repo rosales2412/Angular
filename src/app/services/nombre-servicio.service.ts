@@ -20,9 +20,4 @@ public getData(): Promise<ICurrency[]>{
     throw error;
   })
 }
-
-
-
-
-
 }

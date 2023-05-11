@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <h1>Conversor de divisas</h1>
-      <p>Escoje la moneda y la cantidad para realizar conversion</p>
+      <p>Selecciona la moneda y cantidad para realizar conversión</p>
       <div class="container2">
         <div class="moneda">
           <select
@@ -51,7 +51,7 @@
 
           <div *ngIf="result" class="result">
             <h4>
-              {{ quantity }} {{ coin1.currency }} es igual a
+              {{ quantity }} {{ coin1.currency }} =
               {{ result | number : "1.2-2" }} {{ coin2.currency }}
             </h4>
           </div>
